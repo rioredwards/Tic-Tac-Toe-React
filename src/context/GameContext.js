@@ -9,6 +9,11 @@ const GameProvider = ({ children }) => {
   const [gameIsActive, setGameIsActive] = useState(true);
   const [gameMessage, setGameMessage] = useState('Your Turn X');
 
+  function HandleTileClick(e) {
+    console.log('In HandleTileClick!');
+    console.log('e.target: ', e.target);
+  }
+
   return (
     <GameContext.Provider
       value={{
@@ -20,6 +25,7 @@ const GameProvider = ({ children }) => {
         setGameIsActive,
         gameMessage,
         setGameMessage,
+        HandleTileClick,
       }}
     >
       {children}
