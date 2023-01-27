@@ -31,7 +31,9 @@ const GameProvider = ({ children }) => {
     setGameBoard(newGameBoard);
 
     // Switch player
-    setCurrentPlayer(currentPlayer === 'X' ? 'O' : 'X');
+    const newPlayer = currentPlayer === 'X' ? 'O' : 'X';
+    setCurrentPlayer(newPlayer);
+    setGameMessage(`Your Turn ${newPlayer}`);
   }
 
   function checkEndState() {

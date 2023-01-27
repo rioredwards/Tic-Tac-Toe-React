@@ -15,6 +15,7 @@ function App() {
         <div>{`gameMessage: ${gameMessage}`}</div>
       </div>
       <main>
+        <div className="game-message">{gameMessage}</div>
         <GameBoard></GameBoard>
       </main>
     </div>
