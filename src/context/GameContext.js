@@ -35,18 +35,31 @@ const GameProvider = ({ children }) => {
   }
 
   function checkEndState() {
-    // Iterate through possible win-states
-    for (const winState of winStates) {
-      checkWinState(winState[0], winState[1], winState[2]);
+    if (!gameIsActive) return;
+
+    const winner = checkWinState();
+    if (winner) {
+      setGameMessage(`Player ${winner} Wins!`);
+      setGameIsActive(false);
+    } else if (isTie()) {
+      setGameMessage(`It's a Tie!`);
+      setGameIsActive(false);
     }
   }
 
-  function checkWinState(i, j, k) {
-    if (gameBoard[i] === gameBoard[j] && gameBoard[j] === gameBoard[k] && gameBoard[i]) {
-      if (gameBoard[i] === 'X') console.log(`Player X Wins!`);
-      else if (gameBoard[i] === 'O') console.log(`Player O Wins!`);
-      else console.log('Error in checkWinState!');
+  function checkWinState() {
+    // Iterate through possible win-states to check for a winner
+    for (const winState of winStates) {
+      const { 0: i, 1: j, 2: k } = winState;
+      if (gameBoard[i] === gameBoard[j] && gameBoard[j] === gameBoard[k] && gameBoard[i]) {
+        if (gameBoard[i] === 'X') return 'X';
+        else if (gameBoard[i] === 'O') return 'O';
+      }
     }
+  }
+
+  function isTie() {
+    if (!gameBoard.includes('')) return true;
   }
 
   checkEndState();
