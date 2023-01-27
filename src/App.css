@@ -17,3 +17,8 @@ main {
   font-size: 2.5rem;
   margin-bottom: 1rem;
 }
+
+.song {
+  margin-top: 2rem;
+  justify-self: center;
+}

@@ -13,6 +13,9 @@ function App() {
         <div className="game-message">{gameMessage}</div>
         <Reset></Reset>
         <GameBoard></GameBoard>
+        <audio controls className="song">
+          <source src="Elle_King_-_Ex's_&_Oh's.mp3" type="audio/mpeg"></source>
+        </audio>
       </main>
     </div>
   );
