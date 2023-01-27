@@ -17,8 +17,15 @@ const winStates = [
 const GameProvider = ({ children }) => {
   const [gameBoard, setGameBoard] = useState(['', '', '', '', '', '', '', '', '']);
   const [currentPlayer, setCurrentPlayer] = useState('X');
-  const [gameIsActive, setGameIsActive] = useState(true);
   const [gameMessage, setGameMessage] = useState('Your Turn X');
+  const [gameIsActive, setGameIsActive] = useState(true);
+
+  function handleResetClick() {
+    setGameBoard(['', '', '', '', '', '', '', '', '']);
+    setCurrentPlayer('X');
+    setGameMessage('Your Turn X');
+    setGameIsActive(true);
+  }
 
   function handleTileClick(id) {
     // Guard clause
@@ -78,6 +85,7 @@ const GameProvider = ({ children }) => {
         gameMessage,
         setGameMessage,
         handleTileClick,
+        handleResetClick,
       }}
     >
       {children}

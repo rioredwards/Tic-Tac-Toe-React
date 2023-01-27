@@ -2,6 +2,7 @@ import './App.css';
 import { useContext } from 'react';
 import { GameContext } from './context/GameContext.js';
 import GameBoard from './components/GameBoard.js';
+import Reset from './components/Reset.js';
 
 function App() {
   const { gameBoard, currentPlayer, gameIsActive, gameMessage } = useContext(GameContext);
@@ -16,6 +17,7 @@ function App() {
       </div>
       <main>
         <div className="game-message">{gameMessage}</div>
+        <Reset></Reset>
         <GameBoard></GameBoard>
       </main>
     </div>
