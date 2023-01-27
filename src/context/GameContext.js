@@ -9,9 +9,18 @@ const GameProvider = ({ children }) => {
   const [gameIsActive, setGameIsActive] = useState(true);
   const [gameMessage, setGameMessage] = useState('Your Turn X');
 
-  function HandleTileClick(e) {
-    console.log('In HandleTileClick!');
-    console.log('e.target: ', e.target);
+  function handleTileClick(id) {
+    // Guard clause
+    if (!gameIsActive) return;
+    if (gameBoard[id] !== '') return;
+
+    // Update gameBoard with new tile value
+    const newGameBoard = [...gameBoard];
+    newGameBoard[id] = currentPlayer;
+    setGameBoard(newGameBoard);
+
+    // Switch player
+    setCurrentPlayer(currentPlayer === 'X' ? 'O' : 'X');
   }
 
   return (
@@ -25,7 +34,7 @@ const GameProvider = ({ children }) => {
         setGameIsActive,
         gameMessage,
         setGameMessage,
-        HandleTileClick,
+        handleTileClick,
       }}
     >
       {children}
