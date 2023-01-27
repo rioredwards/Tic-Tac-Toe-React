@@ -1,31 +1,22 @@
-import { useContext } from 'react';
 import './App.css';
+import { useContext } from 'react';
 import { GameContext } from './context/GameContext.js';
+import GameBoard from './components/GameBoard.js';
 
 function App() {
-  const {
-    gameBoard,
-    setGameBoard,
-    currentPlayer,
-    setCurrentPlayer,
-    gameIsActive,
-    setGameIsActive,
-    gameMessage,
-    setGameMessage,
-  } = useContext(GameContext);
+  const { gameBoard, currentPlayer, gameIsActive, gameMessage } = useContext(GameContext);
 
   return (
     <div className="App">
       <div className="context">
         <div>{`gameBoard: ${gameBoard}`}</div>
-        <div>{`setGameBoard: ${setGameBoard}`}</div>
         <div>{`currentPlayer: ${currentPlayer}`}</div>
-        <div>{`setCurrentPlayer: ${setCurrentPlayer}`}</div>
         <div>{`gameIsActive: ${gameIsActive}`}</div>
-        <div>{`setGameIsActive: ${setGameIsActive}`}</div>
         <div>{`gameMessage: ${gameMessage}`}</div>
-        <div>{`setGameMessage: ${setGameMessage}`}</div>
       </div>
+      <main>
+        <GameBoard></GameBoard>
+      </main>
     </div>
   );
 }

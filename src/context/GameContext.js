@@ -4,7 +4,7 @@ import { createContext } from 'react';
 const GameContext = createContext();
 
 const GameProvider = ({ children }) => {
-  const [gameBoard, setGameBoard] = useState(['', '', '', '', '', '', '', '', '']);
+  const [gameBoard, setGameBoard] = useState(['O', 'X', 'O', 'O', '', '', 'X', '', 'X']);
   const [currentPlayer, setCurrentPlayer] = useState('X');
   const [gameIsActive, setGameIsActive] = useState(true);
   const [gameMessage, setGameMessage] = useState('Your Turn X');

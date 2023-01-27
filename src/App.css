@@ -5,3 +5,9 @@
 .context {
   text-align: left;
 }
+
+main {
+  display: grid;
+  padding-top: 4rem;
+  justify-content: center;
+}
